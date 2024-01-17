@@ -1,9 +1,15 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ObjectIdColumn,
+  ObjectId,
+} from 'typeorm';
 
 @Entity()
 export class Todo {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @ObjectIdColumn()
+  _id: ObjectId;
 
   @Column()
   title: string;
@@ -12,5 +18,5 @@ export class Todo {
   description: string;
 
   @Column()
-  status: string;
+  status: string = 'Pending';
 }
